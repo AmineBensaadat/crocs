@@ -48,7 +48,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <>
       <div className={`page-wrapper ${layout}`} id='pageWrapper'>
-        {/* <Header /> */}
+        <Header />
         <div className={`page-body-wrapper`}>
           <SideBar />
           <div className='page-body '>{children}</div>

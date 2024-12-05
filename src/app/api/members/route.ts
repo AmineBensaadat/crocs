@@ -19,7 +19,7 @@ export async function GET(req: Request, { params }: { params?: { id: string } })
   } else {
     // Fetch all members
     const [rows] = await db.execute("SELECT * FROM members");
-    return NextResponse.json({ message: "Members fetched successfully", response: "successful", members: rows });
+    return NextResponse.json({ message: "Members fetched successfully", response: rows, status: "successful" });
   }
 }
 

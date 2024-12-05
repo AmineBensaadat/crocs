@@ -6,20 +6,19 @@ export const MenuList: MenuItem[] | undefined = [
     lanClass: "lan-1",     
     Items: [
       {
-        title: "Pages",
+        title: "Members",
         id: 1,
         icon: "home",
         type: "sub",
         lanClass: "lan-3",
         children: [
           {
-            title: "Sample Page",
-            path: `/pages/sample_page`,
+            title: "members list",
+            path: `/Members/list`,
             type: "link",
           },
         ],
       },
-      { id: 33, path: "https://support.pixelstrap.com/", icon: "support-tickets", type: "link", active: false, title: "Support Ticket" },
     ],
   },
 ];

@@ -6,11 +6,12 @@ import Link from "next/link";
 import { LogOut } from "react-feather";
 
 const UserProfile = () => { 
-  // const { data: session } = useSession();
+  const authSession = sessionStorage.getItem("authSession")
+   const session  = JSON.parse(authSession);
 
-  // const handleLogout = () => {
-  //   signOut();
-  // };
+  const handleLogout = () => {
+    signOut();
+  };
   return (
     <li className='profile-nav onhover-dropdown p-0'>
       <div className='d-flex align-items-center profile-media'>
