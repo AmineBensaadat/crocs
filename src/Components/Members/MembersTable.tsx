@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { ImagePath } from "@/Constant";
 import {
   Card,
   CardBody,
@@ -10,19 +11,20 @@ import {
   Table,
 } from "reactstrap";
 import Link from "next/link";
+import Image from "next/image";
 const MembersTable = () => {
   const [filterText, setFilterText] = useState("");
   const manageOrderHead = [
-    "id",
-    "first_name",
-    "last_name",
-    "email",
-    "phone",
-    "membership_type",
+    "Full Name",
+    "Membership Type",
+    "Joining Date",
+    "Membership Expiry Date",
+    "Status",
     "join_date",
     "status",
-    "created_at",
-    "updated_at",
+    "Contact",
+    "Payment Statu",
+    "Actions"
   ];
   const [manageOrderTableBodyData, setManageOrderTableBodyData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -95,26 +97,19 @@ const MembersTable = () => {
           <tbody>
             {filteredItems.map((data, i) => (
               <tr role="row" key={i}>
-                <td>
-                  <FormGroup check>
-                    <Input type="checkbox" />
-                    <Label check />
-                  </FormGroup>
-                </td>
+              
                 <td className="sorting_1">
                   <div className="d-flex">
                     <div className="flex-shrink-0">
-                      {/* <Image src={`${ImagePath}/dashboard-2/product/${data.image}`} width={42} height={42} alt="product" /> */}
+                      <Image src={`${ImagePath}/avtar/3.jpg`} width={42} height={42} alt="product" />
                     </div>
                     <div className="flex-grow-1 ms-3">
                       <Link href={"/app/ecommerce/product_list"}>
-                        <h6>{data.productName}</h6>
+                        <h6>{data.first_name}  {data.last_name}</h6>
                       </Link>
                     </div>
                   </div>
                 </td>
-                <td>#{data.id}</td>
-                <td>{data.date}</td>
                 <td>${data.price}</td>
                 <td>
                   <Button color={data.color}>{data.status}</Button>
