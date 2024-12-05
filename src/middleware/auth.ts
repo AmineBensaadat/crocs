@@ -1,19 +1,24 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { verifyToken } from './auth-utils'; // Utility to verify JWT or session
+import jwt from "jsonwebtoken";
+import { NextRequest, NextResponse } from "next/server";
 
-export function middleware(req: NextRequest) {
-  const token = req.cookies.get('authToken') || req.headers.get('Authorization')?.split(' ')[1];
+export const authenticate = async (req: NextRequest, res: NextResponse) => {
+  const authHeader = req.headers.get("Authorization");
+  const token = authHeader?.split(" ")[1]; // Extract token from "Bearer <token>"
 
-  if (!token || !verifyToken(token)) {
-    return NextResponse.redirect(new URL('/login', req.url));
+  if (!token) {
+    return NextResponse.json({ message: "Authentication token is missing" }, { status: 401 });
   }
 
-  return NextResponse.next();
-}
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
 
-export const config = {
-  matcher: [
-    "/:path*",  // Protect all routes
-    "/api/:path*" // You can also protect API routes here
-  ]
+    // Optionally attach the user to the request (if required)
+    req.headers.set("user", JSON.stringify(decoded));
+
+    return true; // Authentication passed
+  } catch (error) {
+    return NextResponse.json({ message: "Invalid or expired token" }, { status: 401 });
+  }
 };
+
+
