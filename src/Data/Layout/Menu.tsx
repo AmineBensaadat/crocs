@@ -14,7 +14,21 @@ export const MenuList: MenuItem[] | undefined = [
         children: [
           {
             title: "members list",
-            path: `/Members/list`,
+            path: `/pages/Members/list`,
+            type: "link",
+          },
+        ],
+      },
+      {
+        title: "Plans",
+        id: 1,
+        icon: "home",
+        type: "sub",
+        lanClass: "lan-3",
+        children: [
+          {
+            title: "Plans list",
+            path: `/pages/Plans/list`,
             type: "link",
           },
         ],

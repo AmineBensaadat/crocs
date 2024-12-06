@@ -18,7 +18,7 @@ export async function GET(req: Request, { params }: { params?: { id: string } })
     return NextResponse.json({ message: "Member fetched successfully", response: "successful", member: rows[0] });
   } else {
     // Fetch all members
-    const [rows] = await db.execute("SELECT * FROM members");
+    const [rows] = await db.execute(" SELECT m.*, p.name AS plan_name, p.duration_days, p.price FROM members m LEFT JOIN plans p ON m.plan_id = p.id");
     return NextResponse.json({ message: "Members fetched successfully", response: rows, status: "successful" });
   }
 }

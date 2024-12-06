@@ -65,6 +65,7 @@ const MembersTable = () => {
     fetchData();
   }, []);
   return (
+  
     <div className="custom-scrollbar table-responsive">
       <div className="dataTables_wrapper no-footer">
         <div id="report_filter" className="dataTables_filter">
@@ -97,14 +98,14 @@ const MembersTable = () => {
           <tbody>
             {filteredItems.map((data, i) => (
               <tr role="row" key={i}>
-              
-                <td className="sorting_1">
+
+                <td>
                   <div className="d-flex">
                     <div className="flex-shrink-0">
-                      <Image src={`${ImagePath}/avtar/3.jpg`} width={42} height={42} alt="product" />
+                    <Image src={`${ImagePath}/avtar/3.jpg`} width={42} height={42} alt="product" />
                     </div>
-                    <div className="flex-grow-1 ms-3">
-                      <Link href={"/app/ecommerce/product_list"}>
+                    <div className="flex-grow-1 ms-3 mt-2">
+                      <Link href={'/app/users/user_profile'}>
                         <h6>{data.first_name}  {data.last_name}</h6>
                       </Link>
                     </div>
