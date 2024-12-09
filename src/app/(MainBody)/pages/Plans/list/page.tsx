@@ -27,12 +27,7 @@ import { CommonDropdown } from "@/Components/General/Dashboard/Common/CommonDrop
 
 const PlansList = () => {
   const [filterText, setFilterText] = useState("");
-  const manageOrderHead = [
-    "ID",
-    "Name",
-    "Duration (Days)",
-    "Price ($)"
-  ];
+  const manageOrderHead = ["ID", "Name", "Duration (Days)", "Price ($)"];
   const [manageOrderTableBodyData, setManageOrderTableBodyData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -80,9 +75,13 @@ const PlansList = () => {
       />
       <Container fluid className="ecommerce-dashboard">
         <Row>
-        <Col xl={12} lg={12} className="box-col-7">
+          <Col xl={12} lg={12} className="box-col-7">
             <Card>
-              <DashboardCommonHeader cardClass="pb-0" title={"RecentOrders"} dropDownFalse />
+              <DashboardCommonHeader
+                cardClass="pb-0"
+                title={"RecentOrders"}
+                dropDownFalse
+              />
               <CardBody className="pt-0 report">
                 <div className="custom-scrollbar table-responsive">
                   <div className="dataTables_wrapper no-footer">
@@ -116,10 +115,10 @@ const PlansList = () => {
                       <tbody>
                         {filteredItems.map((data, i) => (
                           <tr role="row" key={i}>
-                           <td>{data.id}</td>
-                <td>{data.name}</td>
-                <td>{data.duration_days}</td>
-                <td>{data.price}</td>
+                            <td>{data.id}</td>
+                            <td>{data.name}</td>
+                            <td>{data.duration_days}</td>
+                            <td>{data.price}</td>
                           </tr>
                         ))}
                       </tbody>
