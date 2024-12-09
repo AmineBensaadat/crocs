@@ -6,13 +6,8 @@ export interface ProductListHeaderProp {
 
 export interface ProductListType {
     imageSrc: string;
-    productName: string;
-    sku: string;
-    category: string;
-    price: string;
-    quantity: string;
-    status: string;
-    rating: number;
+    fullName: string;
+    membershipType: string;
 }
 
 export interface FilterComponentProps {
