@@ -6,6 +6,7 @@ import Link from "next/link";
 import { TableColumn } from "react-data-table-component";
 import { Badge, FormGroup, Input } from "reactstrap";
 import { format } from "date-fns";
+import Image from "next/image";
 
 export const productListBodyData = [
   {
@@ -314,10 +315,11 @@ export const productListColumns: TableColumn<ProductListType>[] = [
     sortable: true,
     cell: (row) => (
       <div className="product-names">
-        <div className="light-product-box">
-          <RatioImage
-            className="img-fluid"
-            src={`${ImagePath}/${row.imageSrc}`}
+        <div className="d-flex align-items-center figma-line rounded-full">
+          <Image
+           className="rounded-full"
+          width={42} height={42}
+            src={`${ImagePath}/avatar/${row.file_name}`}
             alt="laptop"
           />
         </div>

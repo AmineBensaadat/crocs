@@ -6,7 +6,7 @@ import { Href } from '@/Constant';
 import Link from 'next/link';
 import MembersListBody from './MembersListBody';
 
-const MemberListHeader = ({ linkTitle }: ProductListHeaderProp) => {
+const MemberListHeader = ({ linkTitle, plans, onFliterChange }: ProductListHeaderProp) => {
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const handleFilterToggle = () => {
         setIsFilterOpen((prevState) => !prevState);
@@ -26,7 +26,7 @@ const MemberListHeader = ({ linkTitle }: ProductListHeaderProp) => {
             <Collapse className={isFilterOpen ? "show" : ""}>
                 <Card className="list-product-body">
                     <CardBody>
-                        <MembersListBody />
+                        <MembersListBody plans={plans} onFliterChange={onFliterChange} />
                     </CardBody>
                 </Card>
             </Collapse>
